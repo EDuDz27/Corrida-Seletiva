@@ -1,0 +1,19 @@
+{
+  "candidatos": [
+    {
+      "nome": "Felipe Fernando",
+      "pontuacao": "87/100",
+      "vaga": "Desenvolvedor"
+    },
+    {
+      "nome": "Felipe Fernando",
+      "pontuacao": "87/100",
+      "vaga": "Desenvolvedor"
+    },
+    {
+      "nome": "Felipe Fernando",
+      "pontuacao": "87/100",
+      "vaga": "Desenvolvedor"
+    }
+  ]
+}

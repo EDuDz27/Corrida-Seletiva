@@ -1,0 +1,48 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #252B41;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+
+.login-card {
+    background-color: white;
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-card img {
+    filter: brightness(0) saturate(100%) invert(0);
+    display: block;
+    margin: 0 auto 2rem auto;
+    max-width: 120px;
+}
+
+
+
+.form-control:valid {
+    border-color: #198754;
+    /* verde */
+}
+
+.form-control:invalid:focus {
+    border-color: #dc3545;
+    /* vermelho */
+}
+
+.btn-login {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.alert {
+    margin-top: 1rem;
+    display: none;
+}

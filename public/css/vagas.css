@@ -1,0 +1,32 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f1f3f5;
+}
+
+nav ul li a:hover {
+  background-color: #161c2e;
+  border-radius: 4px;
+}
+
+.d-flex nav {
+  background-color: #252B41;
+}
+
+h1 {
+  color: #252B41;
+  font-size: 3rem;
+}
+
+#botao {
+  font-size: 1.2rem;
+  padding: 0.75rem 2rem;
+  background-color: #252B41;
+  border: none;
+  color: white;
+}
+
+#botao:hover {
+  background-color: #161c2e;
+  color: white;
+}
+
