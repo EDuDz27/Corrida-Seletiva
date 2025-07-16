@@ -1,6 +1,6 @@
 <?php
 
-class CurrciulosModel
+class CurriculosModel
 {
     private $conn;
 
@@ -9,6 +9,10 @@ class CurrciulosModel
         $this->conn = (new Database())->getConnection();
     }
 
-
+    public function cadastrarCurriculo()
+    {
+        
+        
+    }
 
 }

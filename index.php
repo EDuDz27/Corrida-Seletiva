@@ -14,6 +14,7 @@ $uri = rtrim($uri, '/') ?: '/';
 
 add('/',                    'HomeController',           'index');
 add('/home',                'HomeController',           'index');
+add('/cadastrarCurriculo',  'HomeController',           'cadastrarCurriculo');
 add('/admin',               'AdminController',          'index');
 add('/admin_form',          'AdminController',          'showForm');
 add('/admin_login',         'AdminController',          'login');

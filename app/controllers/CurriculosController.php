@@ -5,11 +5,11 @@ require_once 'app/models/CurriculosModel.php';
 
 class CurriculosController
 {
-    private $adminModel;
+    private $curriculosModel;
 
     public function __construct()
     {
-        $this->curriculosModel = new CurrciulosModel();
+        $this->curriculosModel = new CurriculosModel();
     }
 
     public function index()
