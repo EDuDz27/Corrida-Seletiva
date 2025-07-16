@@ -1,0 +1,123 @@
+/* Reset e base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* HEADER */
+header {
+    background-color: #252B41;
+    color: white;
+    padding: 1rem 2rem;
+}
+
+/* HERO SECTION */
+.hero {
+    min-height: 80vh;
+    background: url('../imgs/bg-ia.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    margin: 0;
+    padding: 4rem 2rem;
+}
+
+.hero h1 {
+    font-weight: bold;
+    font-size: 5.2rem;
+    line-height: 1.2;
+    transition: all 0.3s ease;
+}
+
+.hero h1:hover {
+    color: #161c2e;
+    font-size: 5.3rem;
+    text-shadow: 0 2px 8px rgba(22, 28, 46, 0.2);
+    transition: all 0.3s ease;
+}
+
+.hero p {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+}
+
+.hero button {
+    font-size: 1.5rem;
+    padding: 0.75rem 2rem;
+    background-color: #252B41;
+    border: none;
+    color: white;
+}
+
+.hero button:hover {
+    background-color: #161c2e;
+    color: white;
+
+}
+/* FAQ SECTION */
+.faq-section {
+    padding: 5rem 4rem;
+    background-color: #ffffff;
+}
+
+
+.faq-section strong {
+    font-size: 1.2rem;
+}
+
+.faq-section p {
+    color: #757575;
+}
+
+.faq-title {
+    font-weight: bold;
+    font-size: 2.8rem;
+}
+
+.faq-item i {
+    color: #252B41;
+    margin-right: 0.5rem;
+}
+
+.col-md-4 {
+    transition: all 0.3s ease;
+}
+
+.col-md-4:hover {
+    border-radius: 0.8rem;
+    padding: 0.8rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
+
+/* FOOTER */
+footer {
+    background-color: #252B41;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+}
+
+/* UTILITÁRIO PARA REMOVER PADDING/MARGIN */
+.no-padding {
+    padding: 0 !important;
+    margin: 0 !important;
+}

@@ -1,0 +1,138 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background-color: #f1f3f5;
+}
+
+.d-flex {
+  height: 100vh;
+}
+
+nav ul li a:hover {
+  background-color: #161c2e;
+  border-radius: 4px;
+}
+
+.d-flex nav {
+  background-color: #252B41;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #1e253d;
+  color: white;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.sidebar h2 {
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+}
+
+.sidebar a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  width: 100%;
+}
+
+.sidebar a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+
+.content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.content h1 {
+  font-weight: 800;
+}
+
+.caixa-externa {
+  background-color: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+  max-width: 900px;
+  margin: 2rem auto;
+}
+
+.curriculo-card {
+  background-color: #ffffff;
+  border: 1px solid #a1a0a0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.curriculo-info {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.curriculo-info p {
+  margin: 0.2rem 0;
+}
+
+/* Botão PDF fixo no topo direito */
+.btn-pdf {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background-color: #1e253d;
+  color: white;
+}
+
+/* Botões Aprovar/Negar */
+.buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.vaga-pdf {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  text-align: right;
+}
+
+.vaga-pdf .btn-pdf {
+  margin-bottom: 0.5rem;
+}
+
+.vaga {
+  font-size: 0.9rem;
+  color: #1e253d;
+}
+
+.logo-container {
+  width: 100%;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center; /* centraliza a logo na sidebar */
+}
+
+.logo-container img {
+  max-width: 140px; /* ajuste para o tamanho desejado */
+  height: auto;
+  object-fit: contain;
+}
+
