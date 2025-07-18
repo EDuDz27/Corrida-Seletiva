@@ -3,17 +3,17 @@
     {
       "nome": "Felipe Fernando",
       "pontuacao": "87/100",
-      "vaga": "Desenvolvedor"
+      "vaga": "Desenvolvedor FrontEnd"
     },
     {
-      "nome": "Felipe Fernando",
-      "pontuacao": "87/100",
-      "vaga": "Desenvolvedor"
+      "nome": "Eduardo Araujo",
+      "pontuacao": "92/100",
+      "vaga": "Desenvolvedor BackEnd"
     },
     {
-      "nome": "Felipe Fernando",
-      "pontuacao": "87/100",
-      "vaga": "Desenvolvedor"
+      "nome": "Lucas Massao",
+      "pontuacao": "89/100",
+      "vaga": "Correção e Analise de Bugs em PHP"
     }
   ]
 }

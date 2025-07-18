@@ -23,5 +23,9 @@ add('/vagas',                       'VagasController',          'index');
 add('/curriculos',                  'CurriculosController',     'index');
 add('/dashboard',                   'DashboardController',      'index');
 add('/dashboard/candidatos-mes',    'DashboardController',      'candidatosPorMes');
+add('/cadastrarVaga',                'VagasController',          'cadastrarVaga');
+add('/getVagas',                     'VagasController',          'getVagas');
+add('/editarVaga',                   'VagasController',          'editarVaga');
+add('/excluirVaga',                  'VagasController',          'excluirVaga');
 
 route($uri);
