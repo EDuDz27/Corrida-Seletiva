@@ -1,20 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
-  'use strict';
+  const form = document.querySelector('.needs-validation');
 
-  const forms = document.querySelectorAll('.needs-validation');
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    event.stopPropagation();
 
-  forms.forEach(form => {
-    form.addEventListener('submit', event => {
-      if (!form.checkValidity()) {
-        event.preventDefault();
-        event.stopPropagation();
-      } else {
-        event.preventDefault(); // impede o envio real para testar
-        alert("Formulário válido! Seus dados foram enviados com sucesso!");
-        // Aqui depois você pode colocar o envio para um servidor ou API
-      }
-
+    if (!form.checkValidity()) {
       form.classList.add('was-validated');
-    });
+      return;
+    }
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('cadastrarCurriculo', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        alert('Currículo enviado com sucesso!');
+        form.reset();
+        form.classList.remove('was-validated');
+        const modal = bootstrap.Modal.getInstance(document.getElementById('formModal'));
+        if (modal) modal.hide();
+      } else {
+        alert('Erro ao enviar. Tente novamente.');
+      }
+    } catch (error) {
+      console.error('Erro:', error);
+      alert('Falha na conexão com o servidor.');
+    }
   });
 });

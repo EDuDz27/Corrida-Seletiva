@@ -84,22 +84,22 @@
                 </div>
 
                 <div class="modal-body">
-                    <form class="needs-validation" novalidate>
+                    <form class="needs-validation" novalidate action="cadastrarCurriculo" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="nome" class="form-label">Nome</label>
-                            <input type="text" class="form-control" id="nome" required>
+                            <input type="text" class="form-control" name="nome" id="nome" required>
                             <div class="invalid-feedback">Por favor, insira seu nome.</div>
                         </div>
 
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" required>
+                            <input type="email" class="form-control" name="email" id="email" required>
                             <div class="invalid-feedback">Insira um email válido.</div>
                         </div>
 
                         <div class="mb-3">
                             <label for="telefone" class="form-label">Telefone</label>
-                            <input type="tel" class="form-control" id="telefone" required pattern="\d{10,11}">
+                            <input type="tel" class="form-control" name="telefone" id="telefone" required pattern="\d{10,11}">
                             <div class="invalid-feedback">Digite um telefone válido.</div>
                         </div>
 
@@ -108,52 +108,51 @@
                         <div class="row">
                             <div class="col-6 mb-3">
                                 <label for="cep" class="form-label">CEP</label>
-                                <input type="text" class="form-control" id="cep" required pattern="\d{8}"
+                                <input type="text" class="form-control" name="cep" id="cep" required pattern="\d{8}"
                                     onblur="pesquisacep(this.value)">
                                 <div class="invalid-feedback">Digite o CEP.</div>
                             </div>
                             <div class="col-6 mb-3">
                                 <label for="uf" class="form-label">UF</label>
-                                <input type="text" class="form-control" id="uf" readonly>
+                                <input type="text" class="form-control" name="uf" id="uf" readonly>
                                 <div class="invalid-feedback">Digite a UF.</div>
                             </div>
                         </div>
 
                         <div class="mb-3">
                             <label for="rua" class="form-label">Rua</label>
-                            <input type="text" class="form-control" id="rua" readonly>
+                            <input type="text" class="form-control" name="rua" id="rua" readonly>
                             <div class="invalid-feedback">Digite o nome da rua.</div>
                         </div>
 
                         <div class="mb-3">
                             <label for="bairro" class="form-label">Bairro</label>
-                            <input type="text" class="form-control" id="bairro" readonly>
+                            <input type="text" class="form-control" name="bairro" id="bairro" readonly>
                             <div class="invalid-feedback">Digite o bairro.</div>
                         </div>
 
                         <div class="mb-3">
                             <label for="cidade" class="form-label">Cidade</label>
-                            <input type="text" class="form-control" id="cidade" readonly>
+                            <input type="text" class="form-control" name="cidade" id="cidade" readonly>
                             <div class="invalid-feedback">Digite a cidade.</div>
                         </div>
 
                         <div class="mb-3">
                             <label for="numero" class="form-label">Número</label>
-                            <input type="text" class="form-control" id="numero" required>
+                            <input type="text" class="form-control" name="numero" id="numero" required>
                             <div class="invalid-feedback">Digite o número da residência.</div>
                         </div>
 
                         <div class="mb-3">
                             <label for="complemento" class="form-label">Complemento</label>
-                            <input type="text" class="form-control" id="complemento">
+                            <input type="text" class="form-control" name="complemento" id="complemento">
                         </div>
-
 
                         <hr>
 
                         <div class="mb-3">
                             <label for="curriculo" class="form-label">Anexar Currículo (PDF)</label>
-                            <input type="file" class="form-control" id="curriculo" accept=".pdf" required>
+                            <input type="file" class="form-control" name="curriculo" id="curriculo" accept=".pdf" required>
                             <div class="invalid-feedback">Por favor, anexe seu currículo em PDF.</div>
                         </div>
 

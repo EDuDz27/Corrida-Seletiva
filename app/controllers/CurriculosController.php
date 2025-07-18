@@ -24,4 +24,19 @@ class CurriculosController
         include 'app/views/curriculos.html';
 
     }
+
+    public function cadastrarCurriculo() {
+        $nome = $_POST['nome'] ?? '';
+        $email = $_POST['email'] ?? '';
+        $telefone = $_POST['telefone'] ?? '';
+        $cep = $_POST['cep'] ?? '';
+        $uf = $_POST['uf'] ?? '';
+        $rua = $_POST['rua'] ?? '';
+        $bairro = $_POST['bairro'] ?? '';
+        $cidade = $_POST['cidade'] ?? '';
+        $numero = $_POST['numero'] ?? '';
+        $complemento = $_POST['complemento'] ?? '';
+        $curriculo = $_FILES['curriculo'] ?? null;
+        $this->curriculosModel->cadastrarCurriculo($nome, $email, $telefone, $cep, $uf, $rua, $bairro, $cidade, $numero, $complemento, $curriculo);
+    }
 }

@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Admin - Vagas</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <link rel="stylesheet" href="public/css/vagas.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="public/css/dashboard.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet" />
 </head>
+
 <body>
   <div class="d-flex">
     <!-- Sidebar -->
-    <nav class=" text-white p-3 vh-100" style="width: 220px;">
+    <nav class="text-white p-3 vh-100" style="width: 220px; background-color: #1e253d;">
       <div class="mb-4 text-center">
         <img src="public/imgs/icon.jpg" alt="Logo" style="height: 74px;">
-
       </div>
       <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="admin" class="nav-link text-white">Dashboard</a></li>
+        <li class="nav-item mb-2"><a href="dashboard" class="nav-link text-white">Dashboard</a></li>
         <li class="nav-item mb-2"><a href="vagas" class="nav-link text-white">Vagas</a></li>
         <li class="nav-item mb-2"><a href="curriculos" class="nav-link text-white">Currículos</a></li>
         <li class="nav-item mb-2"><a href="logout" class="nav-link text-white">Logout</a></li>
@@ -25,15 +27,124 @@
 
     <!-- Conteúdo principal -->
     <main class="flex-grow-1 p-4">
-      <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1 class="fw-bold">Dashboard</h1>
+      <h1 class="fw-bold">Dashboard</h1>
+
+      <!-- Cards -->
+      <div class="d-flex justify-content-center gap-4 flex-wrap mt-4 mb-5">
+        <div class="card-dashboard">
+          <h4>
+            <?php echo $estatisticas['total_vagas']; ?>
+          </h4>
+          <p>vagas</p>
+        </div>
+        <div class="card-dashboard">
+          <h4>
+            <?php echo $estatisticas['total_candidatos']; ?>
+          </h4>
+          <p>currículos</p>
+        </div>
+        <div class="card-dashboard">
+          <h4>
+            <?php echo $estatisticas['candidatos_aprovados']; ?>
+          </h4>
+          <p>aprovados</p>
+        </div>
+        <div class="card-dashboard">
+          <h4>
+            <?php echo $estatisticas['candidatos_analisando']; ?>
+          </h4>
+          <p>em análise</p>
+        </div>
+        <div class="card-dashboard">
+          <h4>
+            <?php echo $estatisticas['candidatos_negados']; ?>
+          </h4>
+          <p>negados</p>
+        </div>
       </div>
 
-      
+      <!-- Gráfico de candidatos por mês -->
+      <div class="mb-5" style="max-width: 800px; margin: 0 auto;">
+        <h3 class="mb-3 text-center">Candidatos por mês</h3>
+        <canvas id="meuGrafico" height="120"></canvas>
+      </div>
+
+      <!-- Lista de Candidatos -->
+      <div class="mt-5">
+        <h3 class="mb-4">Candidatos Cadastrados</h3>
+        <div class="table-responsive">
+          <table class="table table-striped table-hover">
+            <thead class="table-dark">
+              <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Status</th>
+                <th>Data de Cadastro</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php if (!empty($candidatos)): ?>
+              <?php foreach ($candidatos as $candidato): ?>
+              <tr>
+                <td>
+                  <?php echo htmlspecialchars($candidato['Id_Candidato']); ?>
+                </td>
+                <td>
+                  <?php echo htmlspecialchars($candidato['Nome']); ?>
+                </td>
+                <td>
+                  <?php echo htmlspecialchars($candidato['Email']); ?>
+                </td>
+                <td>
+                  <?php echo htmlspecialchars($candidato['Telefone']); ?>
+                </td>
+                <td>
+                  <?php 
+                        $status = $candidato['Aprovacao'];
+                        $statusClass = '';
+                        $statusText = '';
+                        
+                        switch($status) {
+                          case 'aprovado':
+                            $statusClass = 'badge bg-success';
+                            $statusText = 'Aprovado';
+                            break;
+                          case 'negado':
+                            $statusClass = 'badge bg-danger';
+                            $statusText = 'Negado';
+                            break;
+                          default:
+                            $statusClass = 'badge bg-warning text-dark';
+                            $statusText = 'Analisando';
+                            break;
+                        }
+                      ?>
+                  <span class="<?php echo $statusClass; ?>">
+                    <?php echo $statusText; ?>
+                  </span>
+                </td>
+                <td>
+                  <?php echo date('d/m/Y H:i', strtotime($candidato['Data'])); ?>
+                </td>
+              </tr>
+              <?php endforeach; ?>
+              <?php else: ?>
+              <tr>
+                <td colspan="6" class="text-center">Nenhum candidato encontrado</td>
+              </tr>
+              <?php endif; ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
     </main>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="public/script/dashboard.js"></script>
 </body>
+
 </html>

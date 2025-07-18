@@ -20,8 +20,8 @@ class AdminController
             header("Location: admin_form");
             exit();
         }
-
-        include 'app/views/dashboard.html';
+        
+        header("Location: dashboard");
     }
 
     public function showForm()

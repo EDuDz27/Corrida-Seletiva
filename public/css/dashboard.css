@@ -1,0 +1,20 @@
+.card-dashboard {
+    background-color: #1e253d;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 120px;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .card-dashboard h4 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .card-dashboard p {
+    margin: 0;
+    font-size: 1rem;
+  }

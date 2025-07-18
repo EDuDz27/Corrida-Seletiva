@@ -12,14 +12,16 @@ if (strpos($uri, $basePath) === 0) {
 
 $uri = rtrim($uri, '/') ?: '/';
 
-add('/',                    'HomeController',           'index');
-add('/home',                'HomeController',           'index');
-add('/cadastrarCurriculo',  'HomeController',           'cadastrarCurriculo');
-add('/admin',               'AdminController',          'index');
-add('/admin_form',          'AdminController',          'showForm');
-add('/admin_login',         'AdminController',          'login');
-add('/logout',              'AdminController',          'logout');
-add('/vagas',               'VagasController',          'index');
-add('/curriculos',          'CurriculosController',     'index');
+add('/',                            'HomeController',           'index');
+add('/home',                        'HomeController',           'index');
+add('/cadastrarCurriculo',          'CurriculosController',     'cadastrarCurriculo');
+add('/admin',                       'AdminController',          'index');
+add('/admin_form',                  'AdminController',          'showForm');
+add('/admin_login',                 'AdminController',          'login');
+add('/logout',                      'AdminController',          'logout');
+add('/vagas',                       'VagasController',          'index');
+add('/curriculos',                  'CurriculosController',     'index');
+add('/dashboard',                   'DashboardController',      'index');
+add('/dashboard/candidatos-mes',    'DashboardController',      'candidatosPorMes');
 
 route($uri);
