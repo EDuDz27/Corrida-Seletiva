@@ -39,4 +39,34 @@ class CurriculosModel
         }
     }
 
+    /**
+     * Buscar candidatos aguardando análise da IA
+     */
+    public function buscarCandidatosAguardandoIA() {
+        $stmt = $this->conn->prepare("SELECT * FROM candidato WHERE Analise_IA = 'aguardando'");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * Atualizar status de análise da IA do candidato
+     */
+    public function atualizarStatusIA($idCandidato, $status) {
+        $stmt = $this->conn->prepare("UPDATE candidato SET Analise_IA = ? WHERE Id_Candidato = ?");
+        $stmt->execute([$status, $idCandidato]);
+    }
+
+    /**
+     * Atualizar aprovação do candidato
+     */
+    public function atualizarAprovacao($idCandidato, $aprovacao) {
+        $stmt = $this->conn->prepare("UPDATE candidato SET Aprovacao = ? WHERE Id_Candidato = ?");
+        $stmt->execute([$aprovacao, $idCandidato]);
+    }
+
+    public function buscarCandidatoComCurriculoPorId($id) {
+        $stmt = $this->conn->prepare("SELECT * FROM candidato WHERE Id_Candidato = ?");
+        $stmt->execute([$id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }

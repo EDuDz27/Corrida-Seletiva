@@ -27,5 +27,9 @@ add('/cadastrarVaga',                'VagasController',          'cadastrarVaga'
 add('/getVagas',                     'VagasController',          'getVagas');
 add('/editarVaga',                   'VagasController',          'editarVaga');
 add('/excluirVaga',                  'VagasController',          'excluirVaga');
+add('/analise-ia/analisar',      'AnaliseIAController', 'analisarCandidatos');
+add('/analise-ia/aprovar',       'AnaliseIAController', 'aprovarCandidato');
+add('/analise-ia/negar',         'AnaliseIAController', 'negarCandidato');
+add('/analise-ia/pdf',           'AnaliseIAController', 'abrirPdf');
 
 route($uri);

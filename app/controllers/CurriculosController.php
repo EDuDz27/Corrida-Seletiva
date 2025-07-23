@@ -2,14 +2,17 @@
 
 require_once 'config/database.php';
 require_once 'app/models/CurriculosModel.php';
+require_once 'app/models/AnaliseIAModel.php';
 
 class CurriculosController
 {
     private $curriculosModel;
+    private $analiseIAModel;
 
     public function __construct()
     {
         $this->curriculosModel = new CurriculosModel();
+        $this->analiseIAModel = new AnaliseIAModel();
     }
 
     public function index()
@@ -20,9 +23,8 @@ class CurriculosController
             header("Location: admin");
             exit();
         }
-
+        $dados = $this->analiseIAModel->buscarCurriculosComPontuacao();
         include 'app/views/curriculos.html';
-
     }
 
     public function cadastrarCurriculo() {

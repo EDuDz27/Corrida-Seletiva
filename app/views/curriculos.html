@@ -31,41 +31,53 @@
     <div class="content">
       <h1>Currículos</h1>
 
+
+
       <div class="caixa-externa">
+
+        <div class="mb-3">
+          <a href="analise-ia/analisar" class="btn btn-primary">Analisar currículos pendentes na IA</a>
+        </div>
+
         <h5 class="mb-4">Currículos Analisados</h5>
+
         <div id="cards-container">
-          <!-- Cards serão inseridos aqui dinamicamente -->
+          <?php if (!empty($dados)): ?>
+          <?php foreach ($dados as $curriculo): ?>
+          <div class="curriculo-card">
+            <div class="curriculo-info">
+              <p><strong>Nome do candidato:</strong>
+                <?= htmlspecialchars($curriculo['Nome']) ?>
+              </p>
+              <p><strong>Pontuação da IA:</strong>
+                <?= isset($curriculo['Pontuacao']) ? htmlspecialchars($curriculo['Pontuacao']) : 'N/A' ?>
+              </p>
+              <p><strong>Status:</strong>
+                <?= htmlspecialchars($curriculo['Aprovacao']) ?>
+              </p>
+            </div>
+            <div class="vaga-pdf">
+              <a class="btn btn-pdf" href="/analise-ia/pdf?id=<?= $curriculo['Id_Candidato'] ?>" target="_blank">Abrir
+                PDF</a>
+              <p class="vaga"><strong>Vaga:</strong>
+                <?= isset($curriculo['NomeVaga']) ? htmlspecialchars($curriculo['NomeVaga']) : 'N/A' ?>
+              </p>
+            </div>
+            <div class="buttons">
+              <a class="btn btn-success" href="/analise-ia/aprovar?id=<?= $curriculo['Id_Candidato'] ?>">Aprovar</a>
+              <a class="btn btn-danger" href="/analise-ia/negar?id=<?= $curriculo['Id_Candidato'] ?>">Negar</a>
+            </div>
+          </div>
+          <?php endforeach; ?>
+          <?php else: ?>
+          <p>Nenhum currículo encontrado.</p>
+          <?php endif; ?>
         </div>
       </div>
     </div>
   </div>
 
   <script>
-    fetch('public/json/dados.json')
-      .then(res => res.json())
-      .then(data => {
-        const container = document.getElementById('cards-container');
-        data.candidatos.forEach(candidato => {
-          container.innerHTML += `
-        <div class="curriculo-card">
-        <div class="curriculo-info">
-        <p><strong>Nome do candidato:</strong> ${candidato.nome}</p>
-        <p><strong>Pontuação da IA:</strong> ${candidato.pontuacao}</p>
-     </div>
-
-         <div class="vaga-pdf">
-         <button class="btn btn-pdf">Abrir PDF</button>
-         <p class="vaga"><strong>Vaga ideal:</strong> ${candidato.vaga}</p>
-     </div>
-
-        <div class="buttons">
-        <button class="btn btn-success">Aprovar</button>
-        <button class="btn btn-danger">Negar</button>
-     </div>
-  </div>
-          `;
-        });
-      });
   </script>
 </body>
 
