@@ -62,7 +62,7 @@ class AnaliseIAController
         if ($id) {
             $this->curriculosModel->atualizarAprovacao($id, 'aprovado');
         }
-        header('Location: curriculos');
+        header('Location: ../curriculos');
         exit;
     }
 
@@ -73,7 +73,7 @@ class AnaliseIAController
         if ($id) {
             $this->curriculosModel->atualizarAprovacao($id, 'negado');
         }
-        header('Location: curriculos');
+        header('Location: ../curriculos');
         exit;
     }
 
